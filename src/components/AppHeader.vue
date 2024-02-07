@@ -30,7 +30,7 @@ nav {
     & h1 {
         font-size: 3.5rem;
         font-weight: 400;
-        margin: 0;
+        color: var(--yu-gi-oh-dark);
     }
 }
 </style>
