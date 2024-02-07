@@ -18,11 +18,14 @@ export default {
         }
     },
     mounted() {
-        axios
-            .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=200&offset=0')
-            .then((response) => {
-                this.cards = response.data.data
-            })
+        setTimeout(() => {
+            axios
+                .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+                .then((response) => {
+                    this.cards = response.data.data
+                })
+        }, 3000)
+
     }
 }
 </script>
