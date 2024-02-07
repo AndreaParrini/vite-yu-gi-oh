@@ -7,6 +7,10 @@ export default {
     components: {
         CardItem
     },
+    props: {
+        cards: Array
+    }
+    /* ,
     data() {
         return {
             cards: []
@@ -18,7 +22,7 @@ export default {
             .then((response) => {
                 this.cards = response.data.data;
             })
-    }
+    } */
 }
 </script>
 

@@ -36,9 +36,10 @@ export default {
     padding: 2rem;
 
     & select {
-        padding: 0.5rem 1rem;
-        border-radius: 0.2rem;
+        padding: 0.5rem 3rem 0.5rem 0.5rem;
+        border-radius: 0.3rem;
         font-size: 1rem;
+        text-align: start;
     }
 }
 </style>
