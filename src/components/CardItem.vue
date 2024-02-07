@@ -29,6 +29,7 @@ export default {
 
         &.name {
             text-transform: uppercase;
+            font-weight: 700;
             color: var(--yu-gi-oh-light);
         }
     }

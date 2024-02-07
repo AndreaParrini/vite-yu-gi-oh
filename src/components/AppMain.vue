@@ -20,7 +20,7 @@ export default {
     mounted() {
         setTimeout(() => {
             axios
-                .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+                .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0')
                 .then((response) => {
                     this.cards = response.data.data
                 })
@@ -49,6 +49,7 @@ export default {
 <style scoped>
 main {
     background-color: var(--yu-gi-oh-primary);
+    padding-bottom: 2rem;
 
     & .section_loader {
         margin-top: 10rem;

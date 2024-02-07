@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
 import CardItem from './CardItem.vue';
 
 export default {
