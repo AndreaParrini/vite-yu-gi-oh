@@ -32,7 +32,7 @@ export default {
         background-color: var(--yu-gi-oh-dark);
         color: var(--yu-gi-oh-light);
         padding: 1rem 1.5rem;
-        margin-bottom: -1rem;
+        margin-bottom: -0.5rem;
 
     }
 }
