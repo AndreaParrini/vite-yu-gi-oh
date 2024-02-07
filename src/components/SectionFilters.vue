@@ -4,8 +4,7 @@ export default {
     name: 'SectionFilters'
     /* data() {
         return {
-            archetypes: [],
-            valueOfSelect: ''
+            archetypes: []
         }
     },
     mounted() {
@@ -25,7 +24,7 @@ export default {
 <template>
     <section class="section_filters">
         <select name="" id="">
-            <!-- <option disabled value="">Please select one</option> -->
+            <option disabled selected value="">Please select one</option>
             <option value="Alien">Alien</option>
             <!-- <option v-for="archetype in archetypes" :value="archetype.archetype_name"> {{ archetype.archetype_name }}
             </option> -->
