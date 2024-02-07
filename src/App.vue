@@ -37,7 +37,7 @@ export default {
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xxl" v-for="card in cards" :key="card.id + '_card'">
             <div class="card">
               <img :src="'https://images.ygoprodeck.com/images/cards_small/' + card.id + '.jpg'" alt="">
-              <div>{{ card.name }}</div>
+              <div class="name">{{ card.name }}</div>
               <div>{{ card.archetype }}</div>
             </div>
 
@@ -71,6 +71,25 @@ main {
 
     & .card {
       background-color: var(--yu-gi-oh-primary);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      & div {
+        padding: 1rem;
+        text-align: center;
+
+        &.name {
+          text-transform: uppercase;
+          color: var(--yu-gi-oh-light);
+        }
+      }
+
+      &:hover {
+        filter: drop-shadow(0 0 15px var(--yu-gi-oh-dark));
+        scale: 1.05;
+      }
     }
   }
 }
