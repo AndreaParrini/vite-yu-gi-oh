@@ -1,10 +1,11 @@
 <script>
-import axios from 'axios';
+/* import axios from 'axios'; */
 export default {
-    name: 'SectionFilters',
+    name: 'SectionFilters'
     /* data() {
         return {
-            archetypes: []
+            archetypes: [],
+            valueOfSelect: ''
         }
     },
     mounted() {
@@ -24,9 +25,10 @@ export default {
 <template>
     <section class="section_filters">
         <select name="" id="">
+            <!-- <option disabled value="">Please select one</option> -->
+            <option value="Alien">Alien</option>
             <!-- <option v-for="archetype in archetypes" :value="archetype.archetype_name"> {{ archetype.archetype_name }}
             </option> -->
-            <option value="alien">Alien</option>
         </select>
     </section>
 </template>
