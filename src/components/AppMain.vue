@@ -24,6 +24,9 @@ export default {
                 .then((response) => {
                     this.cards = response.data.data
                 })
+                .catch((error) => {
+                    console.error(error)
+                })
         }, 3000)
 
     }
