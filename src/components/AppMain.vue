@@ -14,13 +14,14 @@ export default {
     },
     data() {
         return {
+            base_api_url: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
             cards: []
         }
     },
     mounted() {
         setTimeout(() => {
             axios
-                .get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=15&offset=0')
+                .get(this.base_api_url)
                 .then((response) => {
                     this.cards = response.data.data
                 })
