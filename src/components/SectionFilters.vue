@@ -1,10 +1,17 @@
 <script>
-/* import axios from 'axios'; */
+import axios from 'axios';
 export default {
-    name: 'SectionFilters'
-    /* data() {
+    name: 'SectionFilters',
+    emits: ['selected-card'],
+    data() {
         return {
+            archetypeSelected: '',
             archetypes: []
+        }
+    },
+    methods: {
+        getSelectedCards() {
+            this.$emit('selected-card', this.archetypeSelected)
         }
     },
     mounted() {
@@ -17,17 +24,17 @@ export default {
             .catch((error) => {
                 console.error(error);
             })
-    } */
+    }
 }
 </script>
 
 <template>
     <section class="section_filters">
-        <select name="" id="">
-            <option disabled selected value="">Please select one</option>
-            <option value="Alien">Alien</option>
-            <!-- <option v-for="archetype in archetypes" :value="archetype.archetype_name"> {{ archetype.archetype_name }}
-            </option> -->
+        <select name="" id="" v-model="archetypeSelected" @change="getSelectedCards">
+            <option selected value="">Please select one</option>
+            <option value="all">All</option>
+            <option v-for="archetype in archetypes" :value="archetype.archetype_name"> {{ archetype.archetype_name }}
+            </option>
         </select>
     </section>
 </template>

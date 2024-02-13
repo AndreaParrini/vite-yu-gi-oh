@@ -18,18 +18,32 @@ export default {
             cards: []
         }
     },
-    mounted() {
-        setTimeout(() => {
+    methods: {
+        getAllCards(url) {
+            /* setTimeout(() => { */
             axios
-                .get(this.base_api_url)
+                .get(url)
                 .then((response) => {
                     this.cards = response.data.data
                 })
                 .catch((error) => {
                     console.error(error)
                 })
-        }, 3000)
+        }/* , 3000) 
+    }*/,
+        filteredCards(data) {
+            console.log(data);
+            if (data === 'all') {
+                this.getAllCards(this.base_api_url);
+            } else {
+                const url = `${this.base_api_url}&archetype=${data}`;
+                this.getAllCards(url);
+            }
 
+        }
+    },
+    created() {
+        this.getAllCards(this.base_api_url)
     }
 }
 </script>
@@ -38,7 +52,7 @@ export default {
     <main>
         <div class="container">
             <div v-if="cards.length > 0">
-                <SectionFilters></SectionFilters>
+                <SectionFilters @selected-card="filteredCards"></SectionFilters>
                 <SectionCards :cards="cards"></SectionCards>
             </div>
             <div class="section_loader" v-else>
