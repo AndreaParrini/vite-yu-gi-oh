@@ -31,7 +31,7 @@ export default {
 <template>
     <section class="section_filters">
         <select name="" id="" v-model="archetypeSelected" @change="getSelectedCards">
-            <option selected value="">Please select one</option>
+            <option disabled selected value="">Please select one</option>
             <option value="all">All</option>
             <option v-for="archetype in archetypes" :value="archetype.archetype_name"> {{ archetype.archetype_name }}
             </option>
