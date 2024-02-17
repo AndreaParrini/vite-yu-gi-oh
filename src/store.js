@@ -6,6 +6,8 @@ export const store = reactive({
     base_api_url: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
     cards: [],
     loader: true,
+    archetypeSelected: '',
+    archetypes: [],
 
     // ACTIONS
     getAllCards(url) {
@@ -20,5 +22,16 @@ export const store = reactive({
                     console.error(error)
                 })
         }, 3000)
+    },
+    getAllArchetypes() {
+        axios
+            .get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+            .then((response) => {
+                this.archetypes = response.data;
+
+            })
+            .catch((error) => {
+                console.error(error);
+            })
     }
 })

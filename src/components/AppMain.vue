@@ -22,7 +22,6 @@ export default {
         filteredCards(data) {
             store.loader = true;
 
-            console.log(data);
             if (data === 'all') {
                 store.getAllCards(store.base_api_url);
             } else {
@@ -43,9 +42,8 @@ export default {
         <div class="container">
             <div>
                 <SectionFilters @selected-card="filteredCards"></SectionFilters>
-                <SectionCards :cards="store.cards" v-if="!store.loader"></SectionCards>
+                <SectionCards v-if="!store.loader"></SectionCards>
                 <SectionLoader v-else></SectionLoader>
-
             </div>
 
 
