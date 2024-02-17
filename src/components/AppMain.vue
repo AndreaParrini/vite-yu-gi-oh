@@ -3,6 +3,7 @@ import axios from 'axios';
 import SectionFilters from './SectionFilters.vue';
 import SectionCards from './SectionCards.vue';
 import AppLoader from './AppLoader.vue'
+import { store } from '../store.js';
 
 export default {
 
@@ -14,36 +15,37 @@ export default {
     },
     data() {
         return {
-            base_api_url: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
-            cards: []
+            store
+            /* base_api_url: 'https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0',
+            cards: [] */
         }
     },
     methods: {
-        getAllCards(url) {
-            /* setTimeout(() => { */
+        /* getAllCards(url) {
+            setTimeout(() => { 
             axios
                 .get(url)
                 .then((response) => {
-                    this.cards = response.data.data
+                    store.cards = response.data.data
                 })
                 .catch((error) => {
                     console.error(error)
                 })
-        }/* , 3000) 
-    }*/,
+        }, 3000) 
+    }*/
         filteredCards(data) {
             console.log(data);
             if (data === 'all') {
-                this.getAllCards(this.base_api_url);
+                store.getAllCards(store.base_api_url);
             } else {
-                const url = `${this.base_api_url}&archetype=${data}`;
-                this.getAllCards(url);
+                const url = `${store.base_api_url}&archetype=${data}`;
+                store.getAllCards(url);
             }
 
         }
     },
     created() {
-        this.getAllCards(this.base_api_url)
+        store.getAllCards(store.base_api_url)
     }
 }
 </script>
@@ -51,9 +53,9 @@ export default {
 <template>
     <main>
         <div class="container">
-            <div v-if="cards.length > 0">
+            <div v-if="store.cards.length > 0">
                 <SectionFilters @selected-card="filteredCards"></SectionFilters>
-                <SectionCards :cards="cards"></SectionCards>
+                <SectionCards :cards="store.cards"></SectionCards>
             </div>
             <div class="section_loader" v-else>
                 <AppLoader></AppLoader>
