@@ -34,6 +34,8 @@ export default {
         }, 3000) 
     }*/
         filteredCards(data) {
+            store.loader = true;
+
             console.log(data);
             if (data === 'all') {
                 store.getAllCards(store.base_api_url);
@@ -53,13 +55,15 @@ export default {
 <template>
     <main>
         <div class="container">
-            <div v-if="store.cards.length > 0">
+            <div>
                 <SectionFilters @selected-card="filteredCards"></SectionFilters>
-                <SectionCards :cards="store.cards"></SectionCards>
+                <SectionCards :cards="store.cards" v-if="!store.loader"></SectionCards>
+                <div class="section_loader" v-else>
+                    <AppLoader></AppLoader>
+                </div>
+
             </div>
-            <div class="section_loader" v-else>
-                <AppLoader></AppLoader>
-            </div>
+
 
 
         </div>
@@ -72,7 +76,7 @@ main {
     padding-bottom: 2rem;
 
     & .section_loader {
-        margin-top: 10rem;
+        margin: 4rem;
         height: 200px;
         display: flex;
         align-items: center;
