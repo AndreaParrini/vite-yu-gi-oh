@@ -8,15 +8,15 @@ export const store = reactive({
 
     // ACTIONS
     getAllCards(url) {
-        setTimeout(() => {
-            axios
-                .get(url)
-                .then((response) => {
-                    this.cards = response.data.data
-                })
-                .catch((error) => {
-                    console.error(error)
-                })
-        }, 3000)
-    }
+        /* setTimeout(() => { */
+        axios
+            .get(url)
+            .then((response) => {
+                this.cards = response.data.data
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }, /* 3000)
+    } */
 })

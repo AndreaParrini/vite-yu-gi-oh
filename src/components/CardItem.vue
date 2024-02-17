@@ -12,6 +12,7 @@ export default {
         <!-- 'https://images.ygoprodeck.com/images/cards_small/' + card.id + '.jpg' -->
         <img :src="card.card_images[0].image_url" alt="">
         <div class="name">{{ card.name }}</div>
+        <div>{{ card.type }}</div>
         <div>{{ card.archetype }}</div>
     </div>
 </template>
